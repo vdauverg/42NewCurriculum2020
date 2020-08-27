@@ -6,7 +6,7 @@
 /*   By: vdauverg <vdauverg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 17:48:05 by vdauverg          #+#    #+#             */
-/*   Updated: 2020/08/26 18:46:36 by vdauverg         ###   ########.fr       */
+/*   Updated: 2020/08/26 18:50:35 by vdauverg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 # include "./Libft/libft.h"
 # include <math.h>
 
-# define USAGE -1
-# define INC_FORM 0
-# define INC_FLAG 1
+# define OK 0
+# define USAGE 1
+# define INC_FORM 2
+# define INC_FLAG 3
 
 #endif

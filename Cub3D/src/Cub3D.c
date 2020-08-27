@@ -6,7 +6,7 @@
 /*   By: vdauverg <vdauverg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 17:47:29 by vdauverg          #+#    #+#             */
-/*   Updated: 2020/08/26 18:48:00 by vdauverg         ###   ########.fr       */
+/*   Updated: 2020/08/26 18:51:42 by vdauverg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ void	check_flag(char *flag)
 {
 	if (!flag)
 		safe_exit(INC_FLAG);
+}
+
+void	check_format(char *file)
+{
+	if (!file)
+		safe_exit(INC_FORM);
 }
 
 void	parse_input(int ac, char **av)
