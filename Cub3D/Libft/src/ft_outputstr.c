@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cub3D.h                                            :+:      :+:    :+:   */
+/*   ft_outputstr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdauverg <vdauverg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/26 17:48:05 by vdauverg          #+#    #+#             */
-/*   Updated: 2020/09/02 17:11:52 by vdauverg         ###   ########.fr       */
+/*   Created: 2020/08/26 18:22:31 by vdauverg          #+#    #+#             */
+/*   Updated: 2020/09/02 18:13:19 by vdauverg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D
-# define CUB3D
-# include "./minilibx_opengl_20191021/mlx.h"
-# include "./Libft/libft.h"
-# include <fcntl.h>
-# include <stdio.h>
-# include <math.h>
+#include "../libft.h"
 
-# define OK 0
-# define USAGE 1
-# define INC_FORM 2
-# define INC_FLAG 3
-
-typedef struct	s_options
+void	ft_outputstr(int fd, char *s)
 {
-	short	save;
-}				t_options;
+	int l;
 
-typedef struct	s_meta
-{
-	struct s_options	*opts;
-}				t_meta;
+	if (s)
+	{
+		l = ft_strlen(s);
 
-#endif
+		write(fd, s, l);
+	}
+}
