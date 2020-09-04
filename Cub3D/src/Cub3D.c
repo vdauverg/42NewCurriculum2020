@@ -33,17 +33,28 @@ void	safe_exit(int e)
 	exit(1);
 }
 
-char	*read_line(int fd, char *line)
+char	*read_line(int fd, char **line)
 {
-	int		isread;
+	int		n;
 	char	*buf;
+	char	*tmpline;
 
-	buf = (char *)malloc(sizeof(char) * 64);
 
-	while (ft_strchr(line, '\n') == NULL)
+	while (!ft_strchr(*line, '\n'))
 	{
-		isread = read(fd, buf, 63);
+		buf = ft_strnew(64);
+		n = read(fd, buf, 64);
+		tmpline = ft_strjoin(*line, buf);
+		ft_strdel(line);
+		*line = tmpline;
+		ft_strdel(&tmpline);
+		ft_strdel(buf);
 	}
+
+	tmpline = *line;
+	*line = ft_strsplit(tmpline, '\n');
+
+	return ()
 }
 
 void	check_content(char *file, t_meta *meta)
