@@ -6,7 +6,7 @@
 /*   By: vdauverg <vdauverg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 17:47:29 by vdauverg          #+#    #+#             */
-/*   Updated: 2020/09/02 19:00:50 by vdauverg         ###   ########.fr       */
+/*   Updated: 2020/09/09 10:28:58 by vdauverg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*read_line(int fd, char **line)
 	tmpline = *line;
 	*line = ft_strsplit(tmpline, '\n');
 
-	return ()
+	return ();
 }
 
 void	check_content(char *file, t_meta *meta)
