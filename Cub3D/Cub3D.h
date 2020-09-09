@@ -6,7 +6,7 @@
 /*   By: vdauverg <vdauverg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 17:48:05 by vdauverg          #+#    #+#             */
-/*   Updated: 2020/09/02 17:11:52 by vdauverg         ###   ########.fr       */
+/*   Updated: 2020/09/09 12:30:37 by vdauverg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define USAGE 1
 # define INC_FORM 2
 # define INC_FLAG 3
+# define INC_READ 3
+# define INC_TXID 4
 
 typedef struct	s_options
 {
