@@ -6,7 +6,7 @@
 #    By: vdauverg <vdauverg@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/26 17:37:17 by vdauverg          #+#    #+#              #
-#    Updated: 2020/09/09 13:09:54 by vdauverg         ###   ########.fr        #
+#    Updated: 2020/09/14 13:04:55 by vdauverg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ all: $(NAME)
 $(NAME):
 	@make -C Libft
 	@make -sC minilibx_opengl_20191021
-	gcc $(FLAGS) $(SRCDIR)$(SRCS) $(LIBS) -o $(NAME) -g
+	gcc $(FLAGS) $(SRCDIR)$(SRCS) $(LIBS) -o $(NAME)
 
 clean:
 	@make clean -C Libft
