@@ -3,36 +3,50 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vdauverg <vdauverg@student.42.fr>          +#+  +:+       +#+         #
+#    By: vincent <vincent@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/26 17:37:17 by vdauverg          #+#    #+#              #
-#    Updated: 2020/09/09 13:09:54 by vdauverg         ###   ########.fr        #
+#    Updated: 2020/10/05 16:33:34 by vincent          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Cub3D
+NAME := Cub3D
 
-SRCDIR = ./src/
-SRCS = Cub3D.c
+SDIR := ./src
+IDIR := ./inc
+LDIR := ./lib
+LDIRS := $(wildcard $(LDIR)/*)
 
-LIBS = ./minilibx_opengl_20191021/libmlx.a -framework OpenGL -framework AppKit ./Libft/libft.a
+_SRCS := $(patsubst $(SDIR)/%,%,$(wildcard $(SDIR)/*.c))
+_INCS := $(patsubst $(IDIR)/%,%,$(wildcard $(IDIR)/*.h))
+_LIBS = $(foreach lib,$(LDIRS),$(lib:%=%.a))
 
-FLAGS = -Wall -Werror -Wextra
+SRCS := $(patsubst %,$(SDIR)/%,$(_SRCS))
+INCS := $(patsubst %,$(IDIR)/%,$(_INCS))
+LIBS = $(foreach lib,$(LDIRS),$(lib:%=%/%.a))
+
+IDIRS := $(IDIR) $(LDIR)/libft/inc
+
+FLAGS := -Wall -Werror -Wextra
+I = $(foreach i,$(IDIRS),-I$(i)) $(foreach lib,$(LDIRS),-L $(lib) -l$(lib:$(LDIR)/lib%=%))
 
 all: $(NAME)
 	
+$(NAME): $(LIBS)
+	gcc $(FLAGS) $(SRCS) $(I) -framework OpenGL -framework AppKit -o $(NAME)
 
-$(NAME):
-	@make -C Libft
-	@make -sC minilibx_opengl_20191021
-	gcc $(FLAGS) $(SRCDIR)$(SRCS) $(LIBS) -o $(NAME) -g
+$(LIBS):
+	@for lib in $(LDIRS); \
+	do \
+	make -sC $$lib; \
+	done
 
 clean:
-	@make clean -C Libft
-	@make clean -C minilibx_opengl_20191021
+	make clean -sC inc/Libft
+	make clean -sC inc/minilibx_opengl_20191021
 
 fclean: clean
-	@rm -f $(NAME)
-	@make fclean -C Libft
+	rm -f $(NAME)
+	make fclean -sC inc/Libft
 
 re: fclean all
