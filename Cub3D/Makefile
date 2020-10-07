@@ -6,7 +6,7 @@
 #    By: vincent <vincent@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/26 17:37:17 by vdauverg          #+#    #+#              #
-#    Updated: 2020/10/05 16:33:34 by vincent          ###   ########.fr        #
+#    Updated: 2020/10/07 13:57:43 by vincent          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,11 +42,13 @@ $(LIBS):
 	done
 
 clean:
-	make clean -sC inc/Libft
-	make clean -sC inc/minilibx_opengl_20191021
+	@for lib in $(LDIRS); \
+	do \
+	make clean -sC $$lib; \
+	done
 
 fclean: clean
 	rm -f $(NAME)
-	make fclean -sC inc/Libft
+	make fclean -sC $(LDIR)/libft
 
 re: fclean all
