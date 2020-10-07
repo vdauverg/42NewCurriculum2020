@@ -6,7 +6,7 @@
 #    By: vincent <vincent@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/26 17:37:17 by vdauverg          #+#    #+#              #
-#    Updated: 2020/10/07 13:57:43 by vincent          ###   ########.fr        #
+#    Updated: 2020/10/07 14:06:25 by vincent          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,12 +38,14 @@ $(NAME): $(LIBS)
 $(LIBS):
 	@for lib in $(LDIRS); \
 	do \
+	echo "make -sC $$lib${\n}"; \
 	make -sC $$lib; \
 	done
 
 clean:
 	@for lib in $(LDIRS); \
 	do \
+	echo "make clean -sC $$lib${\n}"; \
 	make clean -sC $$lib; \
 	done
 
